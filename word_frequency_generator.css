@@ -1,0 +1,32 @@
+h1{
+    color: purple;
+}
+
+#wordFrequencyTable {
+    display: none;
+}
+
+table{
+    margin: 2rem;
+    font-family: 'Roboto', sans-serif;;
+    border-collapse: collapse;
+    width: 60%;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #077dcc;
+    color: white;
+  }
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+

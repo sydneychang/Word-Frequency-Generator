@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Word Frequency Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="word_frequency_generator.css">
+    <script src="word_frequency_generator.js"></script>
+</head>
+
+<body>
+    <h1>Word Frequency Generator</h1>
+    <textarea id="text" rows="4"
+        cols="50">hi, i am a super duper text text box. Hunters are b3tter than paladins! 'LOL' -Squid Squid sQUID</textarea><br><br>
+    <input type="submit" value="Generate Word Frequency" onclick="generateWordFrequencyTable()">
+    <div id="wordFrequencyTable" style="display:none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Word</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+
+            <tbody id="mapInsert">
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
