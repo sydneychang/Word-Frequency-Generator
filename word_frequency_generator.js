@@ -35,27 +35,26 @@ function createWordFrequencyTable(wordMap) {
     wordMap.forEach(function (value, key) {
         const newRow = document.createElement("TR");
 
-        const newWordCell = document.createElement("TD");
-        const newWordText = document.createTextNode(key);
-        newWordCell.appendChild(newWordText);
-        newRow.appendChild(newWordCell);
-
-        const newFrequencyCell = document.createElement("TD");
-        const newFrequencyText = document.createTextNode(value);
-        newFrequencyCell.appendChild(newFrequencyText);
-        newRow.appendChild(newFrequencyCell);
+        generateRowContent(key, newRow);
+        generateRowContent(value, newRow);
 
         mapInsert.appendChild(newRow);
     })
 }
 
-function generateRowContent() {
+function generateRowContent(mapElement, newRow) {
+    const newCell = document.createElement("TD");
+    const newText = document.createTextNode(mapElement);
+    newCell.appendChild(newText);
+    newRow.appendChild(newCell);
 }
 
-//clean code
-//sort by count descending
+
+//clicking button multiple times should not add to current table
+//sort by count descending 
+// click ascending/descending?
 //github
-//import .txt file and run it
+//import .txt file and run it...or scrape data from a webpage
 //learn nodejs
 
 
