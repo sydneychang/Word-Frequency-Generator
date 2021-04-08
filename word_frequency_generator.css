@@ -2,10 +2,6 @@ h1{
     color: purple;
 }
 
-#wordFrequencyTable {
-    display: none;
-}
-
 table{
     margin: 2rem;
     font-family: 'Roboto', sans-serif;;
@@ -24,6 +20,14 @@ th {
     text-align: center;
     background-color: #077dcc;
     color: white;
+  }
+
+  .hidden {
+    display:none;
+  }
+
+  .visible {
+      display:inline;
   }
 
 tr:nth-child(even){background-color: #f2f2f2;}

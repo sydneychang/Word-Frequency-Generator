@@ -1,10 +1,20 @@
 function generateWordFrequencyTable() {
+    resetTable();
     const wordList = parseString();
     const wordMap = createFrequencyMap(wordList);
     createWordFrequencyTable(wordMap);
 }
 
+function resetTable() {
+    var nodeToClear = document.getElementById("mapInsert");
+    removeAllChildNodes(nodeToClear);
+}
 
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.lastChild);
+    }
+}
 function parseString() {
     const text = document.getElementById("text").value;
     const filteredSentence = removePunctuationAndNumbers(text);
@@ -30,7 +40,7 @@ function createFrequencyMap(wordList) {
 }
 
 function createWordFrequencyTable(wordMap) {
-    document.getElementById("wordFrequencyTable").style.display = "inline";
+    document.getElementById("wordFrequencyTable").className = "visible";
     const mapInsert = document.getElementById("mapInsert");
     wordMap.forEach(function (value, key) {
         const newRow = document.createElement("TR");
@@ -50,9 +60,16 @@ function generateRowContent(mapElement, newRow) {
 }
 
 
+
+
+
+
+
 //clicking button multiple times should not add to current table
 //sort by count descending 
 // click ascending/descending?
+
+//add quick bootstrap beautification
 //github
 //import .txt file and run it...or scrape data from a webpage
 //learn nodejs
