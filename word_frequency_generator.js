@@ -10,9 +10,9 @@ function resetTable() {
     removeAllChildNodes(nodeToClear);
 }
 
-function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-        parent.removeChild(parent.lastChild);
+function removeAllChildNodes(node) {
+    while (node.firstChild) {
+        node.removeChild(node.lastChild);
     }
 }
 function parseString() {
@@ -22,7 +22,7 @@ function parseString() {
 }
 
 function removePunctuationAndNumbers(text) {
-    const nonalphabetCharacters = /[^a-z ]/gi;
+    const nonalphabetCharacters = /\s+$|[^a-z ]/gi;
     return text.replace(nonalphabetCharacters, '');
 }
 
@@ -63,9 +63,7 @@ function generateRowContent(mapElement, newRow) {
 
 
 
-
-
-//clicking button multiple times should not add to current table
+//how to deal with hypenated words
 //sort by count descending 
 // click ascending/descending?
 
