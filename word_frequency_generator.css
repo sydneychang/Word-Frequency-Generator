@@ -18,19 +18,21 @@ th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: #077dcc;
+    background-color: #077dccdc;
     color: white;
   }
 
-  .hidden {
-    display:none;
-  }
-
-  .visible {
-      display:inline;
-  }
+th:hover {background-color: #077dcc;}
 
 tr:nth-child(even){background-color: #f2f2f2;}
 
 tr:hover {background-color: #ddd;}
+
+.hidden {
+    display:none;
+}
+
+.visible {
+    display:inline;
+}
 

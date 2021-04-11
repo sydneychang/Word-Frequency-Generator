@@ -1,8 +1,8 @@
+//create initial table 
 function generateWordFrequencyTable() {
     resetTable();
-    const wordList = parseString();
-    const wordMap = createFrequencyMap(wordList);
-    createWordFrequencyTable(wordMap);
+    const wordFrequencyList = processAndTallyWords();
+    createWordFrequencyTable(wordFrequencyList);
 }
 
 function resetTable() {
@@ -15,6 +15,12 @@ function removeAllChildNodes(node) {
         node.removeChild(node.lastChild);
     }
 }
+
+function processAndTallyWords() {
+    const wordList = parseString();
+    return createFrequencyList(wordList);
+}
+
 function parseString() {
     const text = document.getElementById("text").value;
     const filteredSentence = removePunctuationAndNumbers(text);
@@ -26,7 +32,7 @@ function removePunctuationAndNumbers(text) {
     return text.replace(nonalphabetCharacters, '');
 }
 
-function createFrequencyMap(wordList) {
+function createFrequencyList(wordList) {
     let map = new Map();
     for (let word of wordList) {
         const keyword = word.toLowerCase();
@@ -36,17 +42,17 @@ function createFrequencyMap(wordList) {
         let newCount = map.get(keyword) + 1;
         map.set(keyword, newCount);
     }
-    return map;
+    return Array.from(map);
 }
 
-function createWordFrequencyTable(wordMap) {
+function createWordFrequencyTable(wordFrequencyList) {
     document.getElementById("wordFrequencyTable").className = "visible";
     const mapInsert = document.getElementById("mapInsert");
-    wordMap.forEach(function (value, key) {
+    wordFrequencyList.forEach(function (value) {
         const newRow = document.createElement("TR");
 
-        generateRowContent(key, newRow);
-        generateRowContent(value, newRow);
+        generateRowContent(value[0], newRow);
+        generateRowContent(value[1], newRow);
 
         mapInsert.appendChild(newRow);
     })
@@ -59,6 +65,17 @@ function generateRowContent(mapElement, newRow) {
     newRow.appendChild(newCell);
 }
 
+//onClick event of TH sort table
+function sortByCount() {
+    resetTable();
+    const wordFrequencyList = processAndTallyWords();
+    var sortedList = wordFrequencyList.sort(function (a, b) {
+        return a[1] - b[1];
+    });
+    createWordFrequencyTable(sortedList);
+}
+
+
 
 
 
@@ -66,6 +83,7 @@ function generateRowContent(mapElement, newRow) {
 //how to deal with hypenated words
 //sort by count descending 
 // click ascending/descending?
+//binary heap vs array for sorting
 
 //add quick bootstrap beautification
 //github
