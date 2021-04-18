@@ -1,12 +1,17 @@
+//global variables 
+let talliedList = [];
+let isSorted = null;
+let sortedList = [];
+
 //create initial table 
 function generateWordFrequencyTable() {
     resetTable();
-    const wordFrequencyList = processAndTallyWords();
-    createWordFrequencyTable(wordFrequencyList);
+    processAndTallyWords();
+    createWordFrequencyTable(talliedList);
 }
 
 function resetTable() {
-    var nodeToClear = document.getElementById("mapInsert");
+    const nodeToClear = document.getElementById("mapInsert");
     removeAllChildNodes(nodeToClear);
 }
 
@@ -18,7 +23,7 @@ function removeAllChildNodes(node) {
 
 function processAndTallyWords() {
     const wordList = parseString();
-    return createFrequencyList(wordList);
+    talliedList = createFrequencyList(wordList);
 }
 
 function parseString() {
@@ -58,25 +63,34 @@ function createWordFrequencyTable(wordFrequencyList) {
     })
 }
 
-function generateRowContent(mapElement, newRow) {
+function generateRowContent(arrayElement, newRow) {
     const newCell = document.createElement("TD");
-    const newText = document.createTextNode(mapElement);
+    const newText = document.createTextNode(arrayElement);
     newCell.appendChild(newText);
     newRow.appendChild(newCell);
 }
 
-//onClick event of TH sort table
+//onClick event of TH sort table to sort
 function sortByCount() {
     resetTable();
-    const wordFrequencyList = processAndTallyWords();
-    var sortedList = wordFrequencyList.sort(function (a, b) {
-        return a[1] - b[1];
-    });
+    if (isSorted === null) {
+        sortedList = talliedList.sort(function (a, b) {
+            return a[1] - b[1];
+        });
+        isSorted = true;
+    } else {
+        sortedList.reverse();
+    }
     createWordFrequencyTable(sortedList);
 }
 
 
 
+
+
+
+// !!!!!!!!!!!!!!
+//global sortedList and frequency list? don't want to redo work each time sorting occurs....still need to generate table each time generate button is clicked
 
 
 
