@@ -11,8 +11,11 @@
 
 <body>
     <h1>Word Frequency Generator</h1>
-    <textarea id="text" rows="4"
-        cols="50">hi, i am a super duper text text box. Hunters are b3tter than paladins! 'LOL' -Squid Squid sQUID</textarea><br><br>
+    <textarea id="text" rows="4" cols="50">hi, i am a super duper text text box. Hunters are b3tter than paladins! 'LOL' -Squid Squid sQUID
+    </textarea>
+    <br>
+    <input type="file" name="inputfile" id="inputfile" onchange="readFile(event)">
+    <br>
     <input type="submit" value="Generate Word Frequency" onclick="generateWordFrequencyTable()">
     <div id="wordFrequencyTable" class="hidden">
         <table>

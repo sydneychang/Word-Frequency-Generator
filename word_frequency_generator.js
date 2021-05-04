@@ -1,6 +1,6 @@
 //global variables 
 let talliedList = [];
-let isSorted = null;
+let isSorted;
 let sortedList = [];
 
 //create initial table 
@@ -8,6 +8,7 @@ function generateWordFrequencyTable() {
     resetTable();
     processAndTallyWords();
     createWordFrequencyTable(talliedList);
+    isSorted = null;
 }
 
 function resetTable() {
@@ -84,24 +85,21 @@ function sortByCount() {
     createWordFrequencyTable(sortedList);
 }
 
+function readFile(event) {
+    var input = event.target;
+    var fileReader = new FileReader();
+    fileReader.readAsText(input.files[0]);
+    fileReader.onload = function () {
+        document.getElementById('text').textContent = fileReader.result;
+    }
+}
 
 
 
-
-
-// !!!!!!!!!!!!!!
-//global sortedList and frequency list? don't want to redo work each time sorting occurs....still need to generate table each time generate button is clicked
-
-
-
-//how to deal with hypenated words
-//sort by count descending 
-// click ascending/descending?
+//how to deal with hypenated words and apostrophes
 //binary heap vs array for sorting
 
 //add quick bootstrap beautification
 //github
 //import .txt file and run it...or scrape data from a webpage
 //learn nodejs
-
-

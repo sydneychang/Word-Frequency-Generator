@@ -13,3 +13,4 @@ Things I learned:
     -Dynamically generate tables with createElement
     -Iterators and the fact that they do things
     -Trees, nodes, roots, soil, fungi
+    -Reading files from .txt file
